@@ -2,6 +2,11 @@
 
 This project is a basic options trading app simulation built with Next.js, React, and MongoDB. It allows users to simulate trading binary options, manage balances, and interact with an orderbook.
 
+
+https://github.com/user-attachments/assets/a5b69c38-6176-4064-9b02-a198400d5717
+
+
+
 ## Features
 
 - User authentication
