@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Options Trading App Simulation
+
+This project is a basic options trading app simulation built with Next.js, React, and MongoDB. It allows users to simulate trading binary options, manage balances, and interact with an orderbook.
+
+## Features
+
+- User authentication
+- INR balance management (onramp and faucet)
+- Stock balance management
+- Place 'Yes' and 'No' orders
+- Real-time orderbook updates using WebSockets
+- Mint tokens for trading
+- Matching engine for order execution
+
+## Technologies Used
+
+- Next.js 14
+- React 18
+- MongoDB
+- Socket.IO for real-time updates
+- Tailwind CSS for styling
+- Framer Motion for animations
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/options-trading-app.git
+   cd options-trading-app
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory and add the following:
+   ```
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app`: Contains the main application pages and API routes
+- `src/components`: React components used throughout the app
+- `src/lib`: Utility functions and database operations
+- `src/pages/api`: API routes for WebSocket initialization
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API Endpoints
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/api/balance/inr/:userId`: Get INR balance
+- `/api/balance/stock/:userId`: Get stock balance
+- `/api/onramp/inr`: Onramp INR
+- `/api/faucet`: Use faucet to get free INR
+- `/api/order/yes`: Place a 'Yes' order
+- `/api/order/no`: Place a 'No' order
+- `/api/orderbook/:stockSymbol`: Get orderbook for a stock
+- `/api/trade/mint/:stockSymbol`: Mint new tokens
